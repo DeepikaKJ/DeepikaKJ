@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Deepika KJ's Portfolio showcasing expertise in software testing and quality assurance.">
+    <meta name="keywords" content="Deepika KJ, Software Tester, Portfolio">
+    <title>Deepika KJ | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: row;
+        }
+
+        /* Loader */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+            color: #007bff;
+        }
+
+        @keyframes fadeIn {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Social */
+        .fa-brands {
+            color: #DCDCDC;
+            text-decoration: none;
+        }
+
+        .fa {
+            color: #DCDCDC;
+            text-decoration: none;
+        }
+
+        .fa-linkedin-in:hover {
+            color: #0A66C2;
+        }
+
+        .fa-github:hover {
+            color: black;
+
+        }
+
+        .fa-envelope:hover {
+            background: linear-gradient(135deg, #34b7f1, #ffffff);
+            background-clip: text;
+            color: transparent;
+        }
+
+        .social {
+            padding-top: 15%;
+            font-size: xx-large;
+        }
+
+        .social-icons a {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.3);
+        }
+
+        /* Left Side Container */
+        .vcard {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 30%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e1f20, #222222);
+            color: white;
+            padding: 7%;
+            text-align: center;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .photoframe {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            pointer-events: none;
+            /* Disable interactions */
+            user-select: none;
+        }
+
+        .name {
+            font-size: xx-large;
+            padding-top: 3%;
+            font-weight: 700;
+        }
+
+        .role {
+            font-size: large;
+            padding-top: 1%;
+            font-weight: 400;
+        }
+
+        .button27 {
+            background-color: #0842a0;
+            color: white;
+            font-size: 16px;
+            font-weight: 300;
+            padding: 15px 30px;
+            margin: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .button27:hover {
+            background-color: #063c7b;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Right Side Container */
+        .panel {
+            margin-left: 30%;
+            width: 70%;
+            background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
+            color: #333;
+            font-size: 1.2em;
+            font-weight: 400;
+            padding: 8%;
+            border-radius: 10px;
+            overflow-y: auto;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+            .vcard {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 5%;
+                text-align: center;
+            }
+
+            .panel {
+                margin-left: 0;
+                width: 100%;
+                padding: 5%;
+                margin-top: 20px;
+                height: auto;
+                overflow: visible;
+            }
+        }
+
+        .card {
+            background: linear-gradient(135deg, #ffffff, #f5f5f5);
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Disable image dragging and downloading */
+        img {
+            -webkit-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+        }
+
+        /* typewriter */
+        #typewriter {
+            font-family: inherit;
+            font-size: 18px;
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        /* Skeleton loader for form fields */
+        .skeleton {
+            background: #e0e0e0;
+            background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 4px;
+            display: block;
+            width: 100%;
+            height: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        @keyframes loading {
+            from {
+                background-position: 200% 0;
+            }
+
+            to {
+                background-position: -200% 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div class="container-fluid content" style="display: none;" id="main-content">
+        <div class="row">
+            <!-- Left Container -->
+            <div class="col-lg-5 vcard">
+                <div>
+                    <div>
+                        <img class="photoframe rounded mx-auto d-block" src="deepika.jpg" alt="Deepika KJ"
+                            oncontextmenu="return false;" />
+                    </div>
+                </div>
+                <div class="name">Deepika KJ</div>
+                <span class="role" style="color: gray">Software Tester</span>
+                <div class="button">
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                            <button class="button27" data-bs-toggle="modal" data-bs-target="#contactModal">Contact
+                                Me</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social social-icons">
+                    <div class="text-center social">
+                        <a href="https://www.linkedin.com" class="zoom fa-brands fa-linkedin-in"></a>
+                        <a href="https://github.com/deepikakj" class="zoom fa-brands fa-github"
+                            style="padding-left:25px;"></a>
+                        <a href="mailto:deepikajayanna16@gmail.com" class="zoom fa fa-envelope"
+                            style="padding-left:25px;"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Container -->
+            <div class="col-lg-6 panel">
+                <h2>About Me</h2>
+
+                <div id="typewriter"></div>
+
+                <hr style="margin-top:3%;">
+
+                <!-- Cards Section -->
+                <div class="mt-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Projects</h5>
+                            <p class="card-text">Explore my portfolio of software testing projects.</p>
+                            <button class="button27" data-bs-toggle="modal" data-bs-target="#projectsModal">View
+                                Projects</button>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Resume</h5>
+                            <p class="card-text">Download my resume to learn more about my skills and experience.</p>
+                            <button class="button27" onclick="downloadResume()">Download Resume</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Contact-->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Contact Me</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Skeleton loader structure -->
+                    <div id="skeleton-form" style="display: none;">
+                        <div class="skeleton"></div>
+                        <div class="skeleton"></div>
+                        <div class="skeleton"></div>
+                        <div class="skeleton" style="height: 4em;"></div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <form name="contactForm" id="contactForm">
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Name <span style="color: red;">*</span></label>
+                            <input type="text" class="form-control" id="nameInput" name="your-name"
+                                placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mobileInput" class="form-label">Mobile Number <span
+                                    style="color: red;">*</span></label>
+                            <input type="number" class="form-control" id="mobileInput" name="your-mobile"
+                                placeholder="Your Mobile Number" required>
+                            <div id="mobileWarning" class="text-danger" style="display: none;">Mobile number must be
+                                exactly 10 digits.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email <span style="color: red;">*</span></label>
+                            <input type="email" class="form-control" id="emailInput" name="your-email"
+                                placeholder="Your Email" required>
+                            <div id="emailWarning" class="text-danger" style="display: none;">Please enter a valid email
+                                address ending with a valid domain name.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="messageInput" class="form-label">Message <span
+                                    style="color: red;">*</span></label>
+                            <textarea class="form-control" id="messageInput" name="your-message" rows="4"
+                                placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Projects -->
+    <div class="modal fade" id="projectsModal" tabindex="-1" aria-labelledby="projectsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectsModalLabel">My Projects</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+                    <!-- Project Cards -->
+                    <div class="row row-cols-1 g-3">
+                        <!-- Card 1 -->
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <h5 class="card-header">Project 1</h5>
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Automated Testing Suite</h5>
+                                    <p class="card-text">A robust framework for automating tests using Selenium and
+                                        Python.
+                                    </p>
+                                    <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Project 2: E-Commerce Application Testing</h5>
+                                    <p class="card-text">Comprehensive manual and automated testing for an online
+                                        shopping
+                                        platform.</p>
+                                    <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Project 3: Performance Testing for APIs</h5>
+                                    <p class="card-text">Used JMeter to measure API response times and optimize server
+                                        performance.</p>
+                                    <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Project 4: Mobile App Testing</h5>
+                                    <p class="card-text">End-to-end testing of a mobile application, including
+                                        functional
+                                        and UI testing.</p>
+                                    <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 5 -->
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Project 5: Test Case Management System</h5>
+                                    <p class="card-text">Developed a test case repository and management system using a
+                                        modern tech stack.</p>
+                                    <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 6 -->
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Project 6: Regression Testing Automation</h5>
+                                    <p class="card-text">Automated regression testing workflows for a finance
+                                        application
+                                        using Jenkins.</p>
+                                    <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 7 -->
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Project 7: Cross-Browser Testing Framework</h5>
+                                    <p class="card-text">Developed a Selenium-based framework for cross-browser testing
+                                        on
+                                        Chrome, Firefox, and Edge.</p>
+                                    <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 8 -->
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Project 8: Accessibility Testing</h5>
+                                    <p class="card-text">Conducted accessibility testing to ensure compliance with WCAG
+                                        standards.</p>
+                                    <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var i = 0;
+        var txt = 'I am a dedicated Software Tester with a strong focus on ensuring the quality and reliability of applications. My expertise lies in manual and automated testing, and I am committed to delivering exceptional user experiences. I strive to provide innovative solutions and excel in challenging environments.';
+        var speed = 50; // Typing speed (in milliseconds)
+
+        // Wait for the entire page to load
+        window.onload = function () {
+            // Hide the loader and show the content
+            var loader = document.getElementById('loader');
+            var mainContent = document.getElementById('main-content');
+
+            if (loader && mainContent) {
+                loader.style.display = 'none';
+                mainContent.style.display = 'block';
+
+                // Start the typewriter animation after loader is hidden
+                typeWriter();
+            }
+        };
+
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("typewriter").innerHTML += txt.charAt(i); // Add one character at a time
+                i++;
+                setTimeout(typeWriter, speed); // Call function recursively with a delay
+            }
+        }
+    </script>
+
+    <script>
+        function downloadResume() {
+            const link = document.createElement('a');
+            link.href = 'deepi_resume.pdf'; // Path to your resume file
+            link.download = 'Deepika_KJ_Resume.pdf'; // Suggested file name
+            link.click();
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contactForm');
+            const emailInput = document.getElementById('emailInput');
+            const emailWarning = document.getElementById('emailWarning');
+            const mobileInput = document.getElementById('mobileInput');
+            const mobileWarning = document.getElementById('mobileWarning');
+            const skeleton = document.getElementById('skeleton-form');
+            const contactModal = document.getElementById('contactModal');
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbye-x7TuZgQ1R47p4fHtVPU8hBCTKc6w-RwiCzwXl5uhgqUjQivf3Zsye8lUQqazDzRIQ/exec';
+
+            // Form submission handling
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission behavior
+
+                let isValid = true;
+
+                // Email validation
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const validDomains = ['.com', '.org', '.net', '.edu', '.in'];
+                const emailDomain = emailInput.value.substring(emailInput.value.lastIndexOf('.'));
+
+                if (!emailPattern.test(emailInput.value) || !validDomains.includes(emailDomain)) {
+                    emailWarning.className = 'alert alert-danger mt-3';
+                    emailWarning.style.display = 'block';
+                    isValid = false;
+                } else {
+                    emailWarning.style.display = 'none';
+                }
+
+                // Mobile number validation
+                if (!mobileInput.value || mobileInput.value.length !== 10 || isNaN(mobileInput.value)) {
+                    mobileWarning.className = 'alert alert-danger mt-3';
+                    mobileWarning.style.display = 'block';
+                    isValid = false;
+                } else {
+                    mobileWarning.style.display = 'none';
+                }
+
+                // Proceed with submission if valid
+                if (isValid) {
+                    if (skeleton) {
+                        skeleton.style.display = 'block';
+                        form.style.display = 'none';
+                    }
+
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                        .then(response => {
+                            if (response.ok) {
+                                alert("Message sent successfully!");
+                                form.reset(); // Clear the form fields
+                            } else {
+                                alert("Error sending message. Please try again.");
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                            alert("An error occurred. Please try again later.");
+                        })
+                        .finally(() => {
+                            if (skeleton) {
+                                skeleton.style.display = 'none';
+                                form.style.display = 'block';
+                            }
+
+                            // Close the contact modal (if applicable)
+                            if (contactModal) {
+                                const modalInstance = bootstrap.Modal.getInstance(contactModal);
+                                modalInstance.hide();
+                            }
+                        });
+                }
+            });
+        });
+    </script>
+
+    <!-- Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
